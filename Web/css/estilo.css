@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 #inicio {
   width: 100%;
   height: 100vh;
-  background: url(../img/fondo.png) top center;
+  background: url(../images/fondo.jpg) top center;
   background-size: cover;
   position: relative;
 }
@@ -399,4 +399,10 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   font-size: 13px;
   color: #ccc;
+}
+
+img #images{
+  max-height: 50%;
+  max-width: 50%;
+  object-fit: contain;
 }

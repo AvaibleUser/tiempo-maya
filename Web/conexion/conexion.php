@@ -1,8 +1,9 @@
 <?php
+
 $servername = "127.0.0.1";
 $username_DB = "root";
-$password_DB = "@101Jessiel";
-$dbname = "tiempomaya";
+$password_DB = "";
+$dbname = ""; // TODO: Pasar a envs
 
 // Create connection
 $conn = new mysqli($servername, $username_DB, $password_DB, $dbname, '3306');
@@ -12,4 +13,3 @@ if ($conn->connect_error) {
 } else {
     return $conn;
 }
-?>

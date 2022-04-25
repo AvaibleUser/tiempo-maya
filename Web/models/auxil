@@ -1,0 +1,17 @@
+1. Inicio
+2. Ingrese una nota
+3. Mientras nota > 0 
+4.      Si nota > 60 entonces notasAprobadas += nota
+5.          contadorNotasAprobadas + 1
+6.          promedioAprobados = notasAprobadas / contadorNotasAprobadas
+7.      Si no nota < 60 entonces notasReprobadas += nota
+8.          contadorNotasReprobadas +1
+9.         promedioReprobados = notasReprobadas / contadorNotasReprobadas
+10.         
+11.      Fin Si
+12.     totalNotas = contadorNotasAprobadas + contadorNotasReprobadas
+13. Fin Mientras
+14. Imprimir promedioAprobados
+15. Imprimir promedioReprobados
+16. Imprimir totalNotas
+17. Fin

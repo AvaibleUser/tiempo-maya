@@ -1,0 +1,22 @@
+'"../images/nahual/Tzikin.jpg"',
+    
+
+   
+// Auxiliar
+/**
+ SET PATH=%PATH%;C:\Program Files\MySQL\MySQL Server 8.0\bin
+ SOURCE C:\xampp\htdocs\SS1-Proyecto-Tiempo-Maya\DB\DML - DB TiempoMaya.sql
+ SOURCE C:\xampp\htdocs\SS1-Proyecto-Tiempo-Maya\DB\DDL - DB TiempoMaya.sql
+ */
+
+
+ Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Imix\'',   'Dragon',   'Es el guardián fiero de la vida, de las ideas y proyect' at line 2
+
+
+Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Imix\'',   'Dragon',   'Es el guardián fiero de la vida, de las ideas y proyect' at line 2
+
+Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Imix\'',   'Dragon',   'Es el guardián fiero de la vida, de las ideas y proyect' at line 2
+
+Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Imix\'',   'Dragon',   'Es el guardián fiero de la vida, de las ideas y proyect' at line 2
+
+Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Imix\'',   'Dragon',   'Es el guardián fiero de la vida, de las ideas y proyect' at line 2
