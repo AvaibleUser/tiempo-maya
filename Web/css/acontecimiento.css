@@ -62,7 +62,7 @@ label {
   width: 50%;
 }
 
-#carouselExampleControls{
+#carouselExampleControls {
   width: 100%;
 }
 
@@ -88,7 +88,6 @@ label {
   margin-right: 25px;
 }
 
-
 .form-wrapper {
   position: relative;
   color: #333;
@@ -99,7 +98,6 @@ label {
   top: 3px;
   right: 3px;
 }
-
 
 .form-control {
   border: 1px solid #333;
@@ -113,7 +111,7 @@ label {
   margin-bottom: 5px;
 }
 
-.form-control textarea{
+.form-control textarea {
   height: 50px;
 }
 
@@ -139,6 +137,7 @@ label {
 }
 
 select {
+  appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
   cursor: pointer;

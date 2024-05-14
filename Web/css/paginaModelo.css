@@ -1,11 +1,11 @@
-p{
+p {
   margin: 10px;
 }
 
-h5{
+h5 {
   color: cadetblue;
 }
-#information{
+#information {
   padding-top: 20px;
 }
 
@@ -40,7 +40,8 @@ h5{
   transition: all 0.3s ease-in-out;
 }
 
-#portafolio #portafolio-flters li:hover, #portafolio #portafolio-flters li.filter-active {
+#portafolio #portafolio-flters li:hover,
+#portafolio #portafolio-flters li.filter-active {
   background: #2dc997;
   color: #fff;
 }

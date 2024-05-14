@@ -28,12 +28,12 @@ body {
 .pres-timeline {
   font-family: roboto, helvetica, sans-serif;
   font-size: 12px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   width: 100%;
   margin: 30px 0;
 }
 
-.pres-timeline>div>div {
+.pres-timeline > div > div {
   padding: 1em 0;
   box-sizing: border-box;
 }
@@ -53,7 +53,7 @@ body {
 }
 
 .periods-container:before {
-  background-image: linear-gradient(left, #FFF, rgba(248, 248, 248, 0));
+  background-image: linear-gradient(left, #fff, rgba(248, 248, 248, 0));
   left: 0;
   content: "";
   position: absolute;
@@ -64,7 +64,7 @@ body {
 }
 
 .periods-container:after {
-  background-image: linear-gradient(right, #FFF, rgba(248, 248, 248, 0));
+  background-image: linear-gradient(right, #fff, rgba(248, 248, 248, 0));
   right: 0;
   content: "";
   position: absolute;
@@ -157,7 +157,7 @@ body {
 }
 
 .periods-container section .title {
-  color: #4A4A4A;
+  color: #4a4a4a;
   font-size: 28px;
   font-weight: 400;
   display: none;
@@ -175,7 +175,7 @@ body {
 }
 
 .timeline-container:before {
-  background-image: linear-gradient(left, #FFF, rgba(248, 248, 248, 0));
+  background-image: linear-gradient(left, #fff, rgba(248, 248, 248, 0));
   left: 0;
   content: "";
   position: absolute;
@@ -186,7 +186,7 @@ body {
 }
 
 .timeline-container:after {
-  background-image: linear-gradient(right, #FFF, rgba(248, 248, 248, 0));
+  background-image: linear-gradient(right, #fff, rgba(248, 248, 248, 0));
   right: 0;
   content: "";
   position: absolute;
@@ -221,7 +221,7 @@ body {
   margin-left: 80px;
   border-radius: 50%;
   border: 3px solid #7f9298;
-  background-color: #FFF;
+  background-color: #fff;
   position: relative;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -280,7 +280,7 @@ body {
 }
 
 .cards-container:before {
-  background-image: linear-gradient(left, #FFF, rgba(248, 248, 248, 0));
+  background-image: linear-gradient(left, #fff, rgba(248, 248, 248, 0));
   left: 0;
   content: "";
   position: absolute;
@@ -291,7 +291,7 @@ body {
 }
 
 .cards-container:after {
-  background-image: linear-gradient(right, #FFF, rgba(248, 248, 248, 0));
+  background-image: linear-gradient(right, #fff, rgba(248, 248, 248, 0));
   right: 0;
   content: "";
   position: absolute;

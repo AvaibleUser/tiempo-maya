@@ -1,4 +1,4 @@
-.container{
+.container {
   width: 70%;
 }
 
@@ -6,7 +6,7 @@
   position: relative;
   z-index: 20;
   margin-top: 30px;
-  
+
   padding-top: 20px;
   height: 150px;
 }
@@ -84,16 +84,32 @@
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-.profile-env > header .profile-info-sections .profile-name .user-status.is-online {
+.profile-env
+  > header
+  .profile-info-sections
+  .profile-name
+  .user-status.is-online {
   background-color: #06b53c;
 }
-.profile-env > header .profile-info-sections .profile-name .user-status.is-offline {
+.profile-env
+  > header
+  .profile-info-sections
+  .profile-name
+  .user-status.is-offline {
   background-color: #575d67;
 }
-.profile-env > header .profile-info-sections .profile-name .user-status.is-idle {
+.profile-env
+  > header
+  .profile-info-sections
+  .profile-name
+  .user-status.is-idle {
   background-color: #f7d227;
 }
-.profile-env > header .profile-info-sections .profile-name .user-status.is-busy {
+.profile-env
+  > header
+  .profile-info-sections
+  .profile-name
+  .user-status.is-busy {
   background-color: #ee4749;
 }
 .profile-env > header .profile-info-sections .profile-stat h3 {
@@ -118,7 +134,7 @@
   position: relative;
 }
 .profile-env > header .profile-info-sections > li + li:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 15px;
@@ -252,7 +268,12 @@
   float: left;
   padding-top: 6px;
 }
-.profile-env section.profile-feed .profile-post-form .form-options .post-type a {
+.profile-env
+  section.profile-feed
+  .profile-post-form
+  .form-options
+  .post-type
+  a {
   margin-left: 10px;
   font-size: 13px;
   color: #aaaaaa;
@@ -261,13 +282,27 @@
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-.profile-env section.profile-feed .profile-post-form .form-options .post-type a:hover {
+.profile-env
+  section.profile-feed
+  .profile-post-form
+  .form-options
+  .post-type
+  a:hover {
   color: #303641;
 }
-.profile-env section.profile-feed .profile-post-form .form-options .post-submit {
+.profile-env
+  section.profile-feed
+  .profile-post-form
+  .form-options
+  .post-submit {
   float: right;
 }
-.profile-env section.profile-feed .profile-post-form .form-options .post-submit .btn {
+.profile-env
+  section.profile-feed
+  .profile-post-form
+  .form-options
+  .post-submit
+  .btn {
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -286,67 +321,165 @@
   float: left;
   width: 8%;
 }
-.profile-env section.profile-feed .profile-stories article.story .user-thumb a img {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .user-thumb
+  a
+  img {
   -moz-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.04);
   -webkit-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.04);
   box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.04);
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content {
   float: right;
   width: 92%;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content header {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  header {
   display: block;
   margin-bottom: 10px;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content header:before,
-.profile-env section.profile-feed .profile-stories article.story .story-content header:after {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  header:before,
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  header:after {
   content: " ";
   display: table;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content header:after {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  header:after {
   clear: both;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content header .publisher {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  header
+  .publisher {
   float: left;
   color: #9b9fa6;
   font-size: 14px;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content header .publisher a {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  header
+  .publisher
+  a {
   color: #303641;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content header .publisher em {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  header
+  .publisher
+  em {
   display: block;
   font-style: normal;
   font-size: 12px;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content header .story-type {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  header
+  .story-type {
   float: right;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content .story-main-content {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  .story-main-content {
   font-size: 13px;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content .story-main-content p {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  .story-main-content
+  p {
   font-size: 13px;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer {
   margin-top: 15px;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .liked i {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .liked
+  i {
   color: #ff4e50;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer > a {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  > a {
   margin-right: 30px;
   display: inline-block;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer > a span {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  > a
+  span {
   zoom: 1;
   -webkit-opacity: 0.6;
   -moz-opacity: 0.6;
   opacity: 0.6;
   filter: alpha(opacity=60);
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -354,44 +487,140 @@
   border-top: 1px solid #ebebeb;
   padding-top: 20px;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li {
   display: table;
   vertical-align: top;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li:before,
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li:after {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li:before,
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li:after {
   content: " ";
   display: table;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li:after {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li:after {
   clear: both;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li + li {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li
+  + li {
   margin-top: 15px;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-thumb,
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li
+  .user-comment-thumb,
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li
+  .user-comment-content {
   display: table-cell;
   vertical-align: top;
   width: 100%;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-thumb {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li
+  .user-comment-thumb {
   width: 1%;
   padding-right: 20px;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li
+  .user-comment-content {
   border-bottom: 1px solid #ebebeb;
   padding-bottom: 15px;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-name {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li
+  .user-comment-content
+  .user-comment-name {
   font-weight: bold;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-meta {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li
+  .user-comment-content
+  .user-comment-meta {
   font-size: 11px;
   margin-top: 15px;
   color: #9b9fa6;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-meta a {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li
+  .user-comment-content
+  .user-comment-meta
+  a {
   color: #8d929a;
   margin-right: 5px;
   -moz-transition: all 300ms ease-in-out;
@@ -399,10 +628,32 @@
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-meta a + a {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li
+  .user-comment-content
+  .user-comment-meta
+  a
+  + a {
   margin-left: 5px;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-meta a i {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li
+  .user-comment-content
+  .user-comment-meta
+  a
+  i {
   zoom: 1;
   -webkit-opacity: 0.8;
   -moz-opacity: 0.8;
@@ -413,26 +664,73 @@
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-meta a:hover {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li
+  .user-comment-content
+  .user-comment-meta
+  a:hover {
   color: #737881;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-meta a:hover i {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li
+  .user-comment-content
+  .user-comment-meta
+  a:hover
+  i {
   zoom: 1;
   -webkit-opacity: 1;
   -moz-opacity: 1;
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li.comment-form .user-comment-content {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li.comment-form
+  .user-comment-content {
   position: relative;
   border-bottom: 0;
   padding-bottom: 0;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li.comment-form .user-comment-content .form-control {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li.comment-form
+  .user-comment-content
+  .form-control {
   background: #eeeeee;
   border: 0;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li.comment-form .user-comment-content .btn {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li.comment-form
+  .user-comment-content
+  .btn {
   position: absolute;
   right: 5px;
   top: 5px;
@@ -450,14 +748,28 @@
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li.comment-form .user-comment-content .btn:hover {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  footer
+  .comments
+  li.comment-form
+  .user-comment-content
+  .btn:hover {
   zoom: 1;
   -webkit-opacity: 1;
   -moz-opacity: 1;
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.profile-env section.profile-feed .profile-stories article.story .story-content hr {
+.profile-env
+  section.profile-feed
+  .profile-stories
+  article.story
+  .story-content
+  hr {
   margin-top: 40px;
 }
 @media (max-width: 992px) {
@@ -484,7 +796,11 @@
   .profile-env section.profile-feed .profile-stories article.story .user-thumb {
     width: 10%;
   }
-  .profile-env section.profile-feed .profile-stories article.story .story-content {
+  .profile-env
+    section.profile-feed
+    .profile-stories
+    article.story
+    .story-content {
     width: 90%;
   }
 }
@@ -525,7 +841,11 @@
   .profile-env section.profile-feed .profile-stories article.story .user-thumb {
     width: 18%;
   }
-  .profile-env section.profile-feed .profile-stories article.story .story-content {
+  .profile-env
+    section.profile-feed
+    .profile-stories
+    article.story
+    .story-content {
     width: 82%;
   }
   .profile-env section.profile-info-tabs .nav-tabs li a {
@@ -551,11 +871,11 @@
     margin: 18px 0;
   }
 }
-@media (max-width: 994px){
-  .container{
+@media (max-width: 994px) {
+  .container {
     width: 80%;
   }
-  .profile-env section.profile-info-tabs{
+  .profile-env section.profile-info-tabs {
     height: 120px;
     font-size: 15px;
   }

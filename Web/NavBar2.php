@@ -101,9 +101,9 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
             <li class="nav-item">
               <a class="nav-link" href="../models/paginaModelo.php?pagina=Rueda Calendarica">Rueda Calendarica</a>
             </li>
-            
+
             <li class="nav-item"><a class="nav-link" href="../calculadora.php">Calculadora</a></li>
-           
+
           </ul>
         </div>
       </div>
