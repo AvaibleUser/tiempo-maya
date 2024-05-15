@@ -8,10 +8,9 @@ session_start(); ?>
 $conn = include '../conexion/conexion.php';
 $tabla = $_GET['elemento'];
 $table = strtolower($tabla);
-$datos = $conn->query("SELECT nombre,imagen,significado,htmlCodigo FROM tiempo_maya." . $table . ";");
+$datos = $conn->query("SELECT nombre,significado,htmlCodigo FROM tiempo_maya." . $table . ";");
 $elementos = $datos;
 $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nombre='" . $tabla . "';");
-$imagen = "images";
 
 
 ?>
@@ -63,9 +62,14 @@ $imagen = "images";
                     <h3 class="section-title">Elementos</h3>
                 </div>
                 <?php foreach ($datos as $dato) {
+                    $img_path = "../img/$tabla/" . $dato['nombre'];
+                    $img_class = $tabla === "kin" ? "invert" : "";
                     $stringPrint = "<h4 id='" . $dato['nombre'] . "'>" . $dato['nombre'] . "</h4>";
-                    $stringPrint .= "<p><img id='$imagen' src=" . $dato['imagen'] . "></p>";
-                    $stringPrint .= "<h5>Significado</h5> <p>" . $dato['significado'] . "</p>";
+                    $stringPrint .= "<p><img class=\"$img_class\" src=\"$img_path.png\" alt=\"No se puede mostrar la imagen.\"" . ">";
+                    if (file_exists($img_path . "_2.png")) {
+                        $stringPrint .= "<img class=\"invert\" src=\"" . $img_path . "_2.png\" alt=\"No se puede mostrar la imagen.\"" . ">";
+                    }
+                    $stringPrint .= "</p><h5>Significado</h5> <p>" . $dato['significado'] . "</p>";
                     $stringPrint .= "<p>" . $dato['htmlCodigo'] . "</p> <hr>";
                     echo $stringPrint;
                 } ?>

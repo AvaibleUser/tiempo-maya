@@ -190,48 +190,56 @@ h5 {
   line-height: 24px;
   font-size: 14px;
 }
-#Elementos {
+#elementos {
   background: #fff;
   padding: 80px 0;
 }
 
-#Elementos .about-container .background {
+#elementos .about-container .background {
   min-height: 300px;
   background: url(../img/about-img.jpg) center top no-repeat;
   margin-bottom: 10px;
 }
 
-#Elementos .about-container .content {
+#elementos .about-container img {
+  height: 10rem;
+}
+
+#elementos .about-container img.invert {
+  filter: invert(100%);
+}
+
+#elementos .about-container .content {
   background: #fff;
 }
 
-#Elementos .about-container .title {
+#elementos .about-container .title {
   color: #333;
   font-weight: 700;
   font-size: 32px;
 }
 
 @media (max-width: 768px) {
-  #Elementos .about-container .title {
+  #elementos .about-container .title {
     padding-top: 15px;
   }
 }
 
-#Elementos .about-container p {
+#elementos .about-container p {
   line-height: 26px;
 }
 
-#Elementos .about-container p:last-child {
+#elementos .about-container p:last-child {
   margin-bottom: 0;
 }
 
-#Elementos .about-container .icon-box {
+#elementos .about-container .icon-box {
   background: #fff;
   background-size: cover;
   padding: 0 0 30px 0;
 }
 
-#Elementos .about-container .icon-box .icon {
+#elementos .about-container .icon-box .icon {
   float: left;
   background: #fff;
   width: 64px;
@@ -245,12 +253,12 @@ h5 {
   border: 2px solid #2dc997;
 }
 
-#Elementos .about-container .icon-box .icon i {
+#elementos .about-container .icon-box .icon i {
   color: #2dc997;
   font-size: 24px;
 }
 
-#Elementos .about-container .icon-box .title {
+#elementos .about-container .icon-box .title {
   margin-left: 80px;
   font-weight: 500;
   margin-bottom: 5px;
@@ -258,11 +266,11 @@ h5 {
   text-transform: uppercase;
 }
 
-#Elementos .about-container .icon-box .title a {
+#elementos .about-container .icon-box .title a {
   color: #111;
 }
 
-#Elementos .about-container .icon-box .description {
+#elementos .about-container .icon-box .description {
   margin-left: 80px;
   line-height: 24px;
   font-size: 14px;
