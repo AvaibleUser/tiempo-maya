@@ -1,9 +1,9 @@
 --
--- Base de datos: `tiempomaya`
+-- Base de datos: `tiempo_maya`
 --
-DROP DATABASE IF EXISTS `tiempomaya`;
-CREATE DATABASE IF NOT EXISTS `tiempomaya` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `tiempomaya`;
+DROP DATABASE IF EXISTS `tiempo_maya`;
+CREATE DATABASE IF NOT EXISTS `tiempo_maya` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+USE `tiempo_maya`;
 
 -- --------------------------------------------------------
 
@@ -23,7 +23,7 @@ CREATE TABLE `acontecimiento` (
   `ACInicio` varchar(3) NOT NULL,
   `ACFin` varchar(3) DEFAULT NULL,
   `categoria` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -35,7 +35,7 @@ DROP TABLE IF EXISTS `administrador`;
 CREATE TABLE `administrador` (
   `password` varchar(200) NOT NULL,
   `correo` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -46,7 +46,7 @@ CREATE TABLE `administrador` (
 DROP TABLE IF EXISTS `categoria`;
 CREATE TABLE `categoria` (
   `nombre` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,7 @@ DROP TABLE IF EXISTS `categoriacalendario`;
 CREATE TABLE `categoriacalendario` (
   `id_cat_calendario` int NOT NULL,
   `nombre` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,7 @@ CREATE TABLE `energia` (
   `htmlCodigo` mediumtext NOT NULL,
   `nombreYucateco` varchar(30) NOT NULL,
   `categoria` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -89,7 +89,7 @@ CREATE TABLE `imagen` (
   `rutaEscritorio` varchar(250) DEFAULT NULL,
   `data` longtext,
   `categoria` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -102,9 +102,9 @@ CREATE TABLE `informacion` (
   `id_informacion` int NOT NULL,
   `nombre_informacion` varchar(45) DEFAULT NULL,
   `id_cat_calendario` int NOT NULL,
-  `descripcion_web` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `descripcion_escritorio` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `descripcion_web` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
+  `descripcion_escritorio` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -121,7 +121,7 @@ CREATE TABLE `kin` (
   `htmlCodigo` mediumtext,
   `categoria` varchar(100) NOT NULL,
   `nombreYucateco` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ CREATE TABLE `nahual` (
   `significado` varchar(100) NOT NULL,
   `htmlCodigo` longtext,
   `categoria` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -153,7 +153,7 @@ CREATE TABLE `pagina` (
   `categoria` varchar(100) NOT NULL,
   `seccion` varchar(45) DEFAULT NULL,
   `htmlCodigo` longtext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -172,7 +172,7 @@ CREATE TABLE `periodo` (
   `descripcion` varchar(250) DEFAULT NULL,
   `htmlCodigo` longtext,
   `categoria` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -185,7 +185,7 @@ CREATE TABLE `rol` (
   `id_rol` int NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
   `descripcion` varchar(250) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -202,7 +202,7 @@ CREATE TABLE `uinal` (
   `htmlCodigo` mediumtext,
   `categoria` varchar(100) NOT NULL,
   `iddesk` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
 
@@ -221,7 +221,7 @@ CREATE TABLE `usuario` (
   `telefono` bigint DEFAULT NULL,
   `imagen` longtext,
   `id_rol` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Índices para tablas volcadas
