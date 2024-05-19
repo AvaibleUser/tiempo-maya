@@ -1,13 +1,13 @@
 <?php
 
-$conn = include '../conexion/conexion.php';
+$conn = include $_SERVER['DOCUMENT_ROOT'] . '/conexion/conexion.php';
 $uinalesNav = $conn->query("SELECT nombre FROM tiempo_maya.uinal order by nombre;");
 $nahualesNav = $conn->query("SELECT nombre FROM tiempo_maya.nahual order by nombre;");
 $energiasNav = $conn->query("SELECT nombre FROM tiempo_maya.energia order by id;");
 $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by orden ;");
 
 ?>
-<?php include "../mensaje.php"; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/mensaje.php"; ?>
 
 
 <header id="header" style="padding-left: 600px;">
@@ -15,20 +15,20 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
     <nav class="navbar navbar-expand-lg" id="nav-menu-container">
       <div class="container-fluid">
         <a id="title" class="navbar-brand" href="../index.php" style="color: white;font-size: 24px;"><strong>TIEMPO</strong> MAYA</a>
-        <button class="navbar-toggler" type="button" onclick="rellenar()" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span><i style="color: white;" class="fas fa-bars"></i></span>
+        <button id="rellenar" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span><i class="fas fa-bars text-white"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul class="navbar-nav nav-menu">
             <li>
               <a class="nav-link" href="paginaModelo.php?pagina=Calendario Haab">Calendario Haab &nbsp;&nbsp;&nbsp;&nbsp; </a>
-              <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Calendario Haab
               </button>
 
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li>
-                  <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Uinal
                   </button>
                   <a class="nav-link" href="#" style="font-size: 13px;">Uniales </a>
@@ -44,13 +44,13 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
 
             <li>
               <a class="nav-link" href="paginaModelo.php?pagina=Calendario Cholquij">Calendario Cholq'ij &nbsp;&nbsp;&nbsp;&nbsp; </a>
-              <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Calendario Cholquij
               </button>
 
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li>
-                  <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Nahual
                   </button>
                   <a class="nav-link" href="#" style="font-size: 13px;">Nahuales </a>
@@ -63,7 +63,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
                   </ul>
                 </li>
                 <li>
-                  <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Energia
                   </button>
                   <a class="nav-link" href="#" style="font-size: 13px;">Energias </a>
@@ -82,7 +82,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
             </li>
             <li>
               <a class="nav-link" href="../linea_tiempo/LineaDeTiempo.php">Linea del Tiempo &nbsp;&nbsp;&nbsp;&nbsp; </a>
-              <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Linea del Tiempo
               </button>
 
@@ -91,7 +91,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
                   echo " <li class='nav-item'><a class='nav-link' href='../linea_tiempo/NuevoAcontecimiento.php'>Agregar Nuevo Acontecimiento</a></li>";
                 } ?>
                 <li>
-                  <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Periodos
                   </button>
                   <a class="nav-link" href="#" style="font-size: 13px;">Periodos </a>
@@ -127,7 +127,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
 <script type="text/javascript">
   var relleno = false;
 
-  function rellenar() {
+  $('#rellenar').on("click", () => {
     if (!relleno) {
       $('#header').addClass('header-fixed1');
       $('#inicioContainer').addClass('iniciofixed');
@@ -137,5 +137,5 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
       $('#header').removeClass('header-fixed1');
       $('#inicioContainer').removeClass('iniciofixed');
     }
-  }
+  })
 </script>

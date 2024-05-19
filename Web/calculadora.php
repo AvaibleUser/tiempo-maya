@@ -1,19 +1,24 @@
 <?php session_start(); ?>
 <?php
-$conn = include "conexion/conexion.php";
 
+$conn = include $_SERVER['DOCUMENT_ROOT'] . "/conexion/conexion.php";
+
+date_default_timezone_set('US/Central');
 if (isset($_GET['fecha'])) {
     $fecha_consultar = $_GET['fecha'];
 } else {
-    date_default_timezone_set('US/Central');
     $fecha_consultar = date("Y-m-d");
 }
 
-$nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
-$energia = include 'backend/buscar/conseguir_energia_numero.php';
-$haab = include 'backend/buscar/conseguir_uinal_nombre.php';
-$cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
-$cholquij = $nahual . " " . strval($energia);
+$cholquij = include $_SERVER['DOCUMENT_ROOT'] . '/backend/buscar/conseguir_cholquij.php';
+$haab = include $_SERVER['DOCUMENT_ROOT'] . '/backend/buscar/conseguir_haab.php';
+$cuenta_larga = include $_SERVER['DOCUMENT_ROOT'] . '/backend/buscar/conseguir_fecha_cuenta_larga.php';
+$num_energia = intval($cholquij[0]);
+$nombre_energia = strval($cholquij[1]);
+$nombre_nahual = strval($cholquij[3]);
+$num_kin = intval($haab[0]);
+$nombre_kin = strval($haab[1]);
+$nombre_uinal = strval($haab[3]);
 
 ?>
 <!DOCTYPE html>
@@ -23,15 +28,17 @@ $cholquij = $nahual . " " . strval($energia);
     <meta charset="utf-8">
     <title>Tiempo Maya - Calculadora de Mayas</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <?php include "blocks/bloquesCss.html" ?>
-    <link rel="stylesheet" href="css/estilo.css?v=<?php echo (rand()); ?>" />
-    <link rel="stylesheet" href="css/calculadora.css?v=<?php echo (rand()); ?>" />
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/blocks/bloquesCss.html" ?>
+    <link rel="stylesheet" href="/css/estilo.css?v=<?= rand(); ?>" />
+    <link rel="stylesheet" href="/css/calculadora.css?v=<?= rand(); ?>" />
+    <link rel="stylesheet" href="/css/index.css?v=<?= rand(); ?>" />
 </head>
 
 <body>
 
-    <?php include "NavBar.php" ?>
-    <div>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/NavBar.php" ?>
+
+    <div class="snap-scroll">
         <section id="inicio">
             <div id="inicioContainer" class="inicio-container">
 
@@ -40,7 +47,7 @@ $cholquij = $nahual . " " . strval($energia);
                     <form action="#" method="GET">
                         <div class="mb-1">
                             <label for="fecha" class="form-label">Fecha</label>
-                            <input type="date" class="form-control" name="fecha" id="fecha" value="<?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?>">
+                            <input type="date" class="form-control" name="fecha" id="fecha" value="<?= $fecha_consultar ?? ''; ?>">
                         </div>
                         <button type="submit" class="btn btn-get-started"><i class="far fa-clock"></i> Calcular</button>
                     </form>
@@ -57,15 +64,35 @@ $cholquij = $nahual . " " . strval($energia);
                             <tbody>
                                 <tr>
                                     <th scope="row">Calendario Haab</th>
-                                    <td><?php echo isset($haab) ? $haab : ''; ?></td>
+                                    <td class="flex">
+                                        <a class="fecha-img" href="models/paginaModeloElemento.php?elemento=kin#<?= $nombre_kin; ?>">
+                                            <img src="/img/kin/<?= $nombre_kin; ?>_2.png" alt="Error al intentar mostrar al kin <?= $nombre_kin; ?>" class="imagen-elemento img-white">
+                                            <span><?= $nombre_kin; ?> / <?= $num_kin; ?></span>
+                                        </a>
+
+                                        <a class="fecha-img" href="models/paginaModeloElemento.php?elemento=uinal#<?= $nombre_uinal; ?>">
+                                            <img class="img-white" src="img/uinal/<?= $nombre_uinal; ?>.png" alt="Error al intentar mostrar al uinal <?= $nombre_uinal; ?>" class="imagen-elemento">
+                                            <span><?= $nombre_uinal; ?></span>
+                                        </a>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Calendario Cholquij</th>
-                                    <td><?php echo isset($cholquij) ? $cholquij : ''; ?></td>
+                                    <td class="flex">
+                                        <a class="fecha-img" href="models/paginaModeloElemento.php?elemento=energia#<?= $nombre_energia; ?>">
+                                            <img class="img-white" src="img/energia/<?= $nombre_energia; ?>.png" alt="Error al intentar mostrar al energia <?= $nombre_energia; ?>" class="imagen-elemento">
+                                            <span><?= $nombre_energia; ?> / <?= $num_energia; ?></span>
+                                        </a>
+
+                                        <a class="fecha-img" href="models/paginaModeloElemento.php?elemento=nahual#<?= $nombre_nahual; ?>">
+                                            <img src="img/nahual/<?= $nombre_nahual; ?>.png" alt="Error al intentar mostrar al nahual <?= $nombre_nahual; ?>" class="imagen-elemento">
+                                            <span><?= $nombre_nahual; ?></span>
+                                        </a>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Cuenta Larga</th>
-                                    <td><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></td>
+                                    <td><?= $cuenta_larga; ?></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -73,12 +100,11 @@ $cholquij = $nahual . " " . strval($energia);
                 </div>
 
             </div>
-    </div>
-    </section>
+        </section>
     </div>
 
 
-    <?php include "blocks/bloquesJs1.html" ?>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/blocks/bloquesJs1.html" ?>
 
 </body>
 

@@ -1,111 +1,147 @@
 <?php
 
-$conn = include 'conexion/conexion.php';
+$conn = include $_SERVER['DOCUMENT_ROOT'] . '/conexion/conexion.php';
 $kinesNav = $conn->query("SELECT nombre FROM tiempo_maya.kin order by nombre;");
 $uinalesNav = $conn->query("SELECT nombre FROM tiempo_maya.uinal order by nombre;");
 $nahualesNav = $conn->query("SELECT nombre FROM tiempo_maya.nahual order by nombre;");
 $energiasNav = $conn->query("SELECT nombre FROM tiempo_maya.energia order by id;");
-$periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by orden ;");
+// $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by orden ;");
 
 ?>
-<?php include "mensaje.php"; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/mensaje.php"; ?>
 
+<video id="bg-video" src="/img/background.mp4" autoplay muted loop poster></video>
 
-<header id="header" style="padding-left: 600px;">
+<a id="logo" href="/index.php">
+  <div>
+    <img alt="" src="/img/logonew.gif">
+  </div>
+</a>
+
+<header id="header">
   <div class="container">
     <nav class="navbar navbar-expand-lg" id="nav-menu-container">
       <div class="container-fluid">
-        <a id="title" class="navbar-brand" href="index.php" style="color: white;font-size: 24px;"><strong>TIEMPO</strong> MAYA</a>
-        <button class="navbar-toggler" type="button" onclick="rellenar()" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span><i style="color: white;" class="fas fa-bars"></i></span>
+        <button id="rellenar" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span><i class="fas fa-bars text-white"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul class="navbar-nav nav-menu">
             <li>
-              <a class="nav-link" href="models/paginaModelo.php?pagina=Calendario Haab">Calendario Haab &nbsp;&nbsp;&nbsp;&nbsp; </a>
-              <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link" href="/models/paginaModelo.php?pagina=Calendario Haab">Calendario Haab &nbsp;&nbsp;&nbsp;&nbsp; </a>
+              <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Calendario Haab
               </button>
 
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li>
-                  <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Kin
                   </button>
-                  <a class="nav-link" href="#" style="font-size: 13px;">Kines </a>
+                  <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=kin" style="font-size: 13px;">Kines </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div div style="width: 200px; height: 400px; overflow-y: scroll;">
+                    <div>
                       <?php
-
                       if (is_array($kinesNav) || is_object($kinesNav)) {
                         foreach ($kinesNav as $kin) {
-                          echo "<li class='nav-item'><a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $kin['nombre'] . "'>" . $kin['nombre'] . "</a></li>";
+                      ?>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=kin#<?= $kin['nombre']; ?>">
+                              <?= $kin['nombre']; ?>
+                            </a>
+                          </li>
+                      <?php
                         }
-                      } ?>
+                      }
+                      ?>
                   </ul>
                 </li>
                 <li>
-                  <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Uinal
                   </button>
-                  <a class="nav-link" href="#" style="font-size: 13px;">Uniales </a>
+                  <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=uinal" style="font-size: 13px;">Uinales </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div div style="width: 200px; height: 400px; overflow-y: scroll;">
-                      <?php if (is_array($uinalesNav) || is_object($uinalesNav)) {
+                    <div>
+                      <?php
+                      if (is_array($uinalesNav) || is_object($uinalesNav)) {
                         foreach ($uinalesNav as $uinal) {
-                          echo "<li class='nav-item'><a class='nav-link' href='models/paginaModeloElemento.php?elemento=uinal#" . $uinal['nombre'] . "'>" . $uinal['nombre'] . "</a></li>";
+                      ?>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=uinal#<?= $uinal['nombre']; ?>">
+                              <?= $uinal['nombre']; ?>
+                            </a>
+                          </li>
+                      <?php
                         }
-                      } ?>
+                      }
+                      ?>
                   </ul>
                 </li>
               </ul>
             </li>
 
             <li>
-              <a class="nav-link" href="models/paginaModelo.php?pagina=Calendario Cholquij">Calendario Cholq'ij &nbsp;&nbsp;&nbsp;&nbsp; </a>
-              <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Calendario Cholquij
+              <a class="nav-link" href="/models/paginaModelo.php?pagina=Calendario Cholquij">Calendario Cholq'ij &nbsp;&nbsp;&nbsp;&nbsp; </a>
+              <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Calendario Cholq'ij
               </button>
 
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li>
-                  <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Nahual
                   </button>
-                  <a class="nav-link" href="#" style="font-size: 13px;">Nahuales </a>
+                  <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=nahual" style="font-size: 13px;">Nahuales </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div div style="width: 200px; height: 400px; overflow-y: scroll;">
-                      <?php if (is_array($nahualesNav) || is_object($nahualesNav)) {
+                    <div>
+                      <?php
+                      if (is_array($nahualesNav) || is_object($nahualesNav)) {
                         foreach ($nahualesNav as $nahual) {
-                          echo "<li class='nav-item'><a class='nav-link' href='models/paginaModeloElemento.php?elemento=nahual#" . $nahual['nombre'] . "'>" . $nahual['nombre'] . "</a></li>";
+                      ?>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=nahual#<?= $nahual['nombre']; ?>">
+                              <?= $nahual['nombre']; ?>
+                            </a>
+                          </li>
+                      <?php
                         }
-                      } ?>
+                      }
+                      ?>
                     </div>
                   </ul>
                 </li>
                 <li>
-                  <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Energia
                   </button>
-                  <a class="nav-link" href="#" style="font-size: 13px;">Energias </a>
+                  <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=energia" style="font-size: 13px;">Energias </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div div style="width: 200px; height:400px; overflow-y: scroll;">
-                      <?php if (is_array($energiasNav) || is_object($energiasNav)) {
+                    <div>
+                      <?php
+                      if (is_array($energiasNav) || is_object($energiasNav)) {
                         foreach ($energiasNav as $energia) {
-                          echo "<li class='nav-item'><a class='nav-link' href='models/paginaModeloElemento.php?elemento=energia#" . $energia['nombre'] . "'>" . $energia['nombre'] . "</a></li>";
+                      ?>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=energia#<?= $energia['nombre']; ?>">
+                              <?= $energia['nombre']; ?>
+                            </a>
+                          </li>
+                      <?php
                         }
-                      } ?>
+                      }
+                      ?>
                     </div>
                   </ul>
                 </li>
               </ul>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="models/paginaModelo.php?pagina=Rueda Calendarica">Rueda Calendarica</a>
+              <a class="nav-link" href="/models/paginaModelo.php?pagina=Rueda Calendarica">Rueda Calendarica</a>
             </li>
 
-            <li class="nav-item"><a class="nav-link" href="calculadora.php">Calculadora</a></li>
-
+            <li class="nav-item"><a class="nav-link" href="/calculadora.php">Calculadora</a></li>
           </ul>
         </div>
       </div>
@@ -117,7 +153,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
 <script type="text/javascript">
   var relleno = false;
 
-  function rellenar() {
+  $('#rellenar').on("click", () => {
     if (!relleno) {
       $('#header').addClass('header-fixed1');
       $('#inicioContainer').addClass('iniciofixed');
@@ -127,5 +163,5 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
       $('#header').removeClass('header-fixed1');
       $('#inicioContainer').removeClass('iniciofixed');
     }
-  }
+  })
 </script>

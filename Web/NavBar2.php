@@ -1,6 +1,6 @@
 <?php
 
-$conn = include '../conexion/conexion.php';
+$conn = include $_SERVER['DOCUMENT_ROOT'] . '/conexion/conexion.php';
 $kinesNav = $conn->query("SELECT nombre FROM tiempo_maya.kin order by nombre;");
 $uinalesNav = $conn->query("SELECT nombre FROM tiempo_maya.uinal order by nombre;");
 $nahualesNav = $conn->query("SELECT nombre FROM tiempo_maya.nahual order by nombre;");
@@ -8,28 +8,31 @@ $energiasNav = $conn->query("SELECT nombre FROM tiempo_maya.energia order by id;
 // $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by orden ;");
 
 ?>
-<?php include "../mensaje.php"; ?>
-
+<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/mensaje.php"; ?>
+<div class="logo">
+  <a href="../index.php">
+    <img alt="" src="../img/logonew.gif" width=160" height="160">
+  </a>
+</div>
 
 <header id="header" style="padding-left: 600px;">
   <div class="container">
     <nav class="navbar navbar-expand-lg" id="nav-menu-container">
       <div class="container-fluid">
-        <a id="title" class="navbar-brand" href="../index.php" style="color: white;font-size: 24px;"><strong>TIEMPO</strong> MAYA</a>
-        <button class="navbar-toggler" type="button" onclick="rellenar()" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span><i style="color: white;" class="fas fa-bars"></i></span>
+        <button id="rellenar" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span><i class="fas fa-bars text-white"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul class="navbar-nav nav-menu">
             <li>
-              <a class="nav-link" href="../models/paginaModelo.php?pagina=Calendario Haab">Calendario Haab &nbsp;&nbsp;&nbsp;&nbsp; </a>
-              <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link" href="../models/paginaModelo.php?pagina=Calendario Haab" style="color: white;font-size: 17px;">Calendario Haab &nbsp;&nbsp;&nbsp;&nbsp; </a>
+              <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Calendario Haab
               </button>
 
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li>
-                  <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Kin
                   </button>
                   <a class="nav-link" href="../models/paginaModeloElemento.php?elemento=kin" style="font-size: 13px;">Kines </a>
@@ -43,10 +46,10 @@ $energiasNav = $conn->query("SELECT nombre FROM tiempo_maya.energia order by id;
                   </ul>
                 </li>
                 <li>
-                  <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Uinal
                   </button>
-                  <a class="nav-link" href="../models/paginaModeloElemento.php?elemento=uinal" style="font-size: 13px;">Uniales </a>
+                  <a class="nav-link" href="../models/paginaModeloElemento.php?elemento=uinal" style="font-size: 13px;">Uinales </a>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <div div style="width: 200px; height: 400px; overflow-y: scroll;">
                       <?php if (is_array($uinalesNav) || is_object($uinalesNav)) {
@@ -60,14 +63,14 @@ $energiasNav = $conn->query("SELECT nombre FROM tiempo_maya.energia order by id;
             </li>
 
             <li>
-              <a class="nav-link" href="../models/paginaModelo.php?pagina=Calendario Cholquij">Calendario Cholq'ij &nbsp;&nbsp;&nbsp;&nbsp; </a>
-              <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link" href="../models/paginaModelo.php?pagina=Calendario Cholquij" style="color: white;font-size: 17px;">Calendario Cholq'ij &nbsp;&nbsp;&nbsp;&nbsp; </a>
+              <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Calendario Cholquij
               </button>
 
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li>
-                  <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Nahual
                   </button>
                   <a class="nav-link" href="../models/paginaModeloElemento.php?elemento=nahual" style="font-size: 13px;">Nahuales </a>
@@ -82,7 +85,7 @@ $energiasNav = $conn->query("SELECT nombre FROM tiempo_maya.energia order by id;
                   </ul>
                 </li>
                 <li>
-                  <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Energia
                   </button>
                   <a class="nav-link" href="../models/paginaModeloElemento.php?elemento=energia" style="font-size: 13px;">Energias </a>
@@ -99,10 +102,10 @@ $energiasNav = $conn->query("SELECT nombre FROM tiempo_maya.energia order by id;
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../models/paginaModelo.php?pagina=Rueda Calendarica">Rueda Calendarica</a>
+              <a class="nav-link" href="../models/paginaModelo.php?pagina=Rueda Calendarica" style="color: white;font-size: 17px;">Rueda Calendarica</a>
             </li>
 
-            <li class="nav-item"><a class="nav-link" href="../calculadora.php">Calculadora</a></li>
+            <li class="nav-item"><a class="nav-link" href="../calculadora.php" style="color: white;font-size: 17px;">Calculadora</a></li>
 
           </ul>
         </div>
@@ -115,7 +118,7 @@ $energiasNav = $conn->query("SELECT nombre FROM tiempo_maya.energia order by id;
 <script type="text/javascript">
   var relleno = false;
 
-  function rellenar() {
+  $('#rellenar').on("click", () => {
     if (!relleno) {
       $('#header').addClass('header-fixed1');
       $('#inicioContainer').addClass('iniciofixed');
@@ -125,5 +128,5 @@ $energiasNav = $conn->query("SELECT nombre FROM tiempo_maya.energia order by id;
       $('#header').removeClass('header-fixed1');
       $('#inicioContainer').removeClass('iniciofixed');
     }
-  }
+  })
 </script>

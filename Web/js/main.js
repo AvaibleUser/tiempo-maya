@@ -1,7 +1,12 @@
 jQuery(document).ready(function ($) {
   // Header fixed and Back to top button
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 100) {
+  if ($("body").width() < 994) {
+    $(".back-to-top").fadeIn("slow");
+    $("#header").addClass("header-fixed");
+  }
+
+  $("body").scroll(function () {
+    if ($(this).scrollTop() > 100 || $("body").width() < 994) {
       $(".back-to-top").fadeIn("slow");
       $("#header").addClass("header-fixed");
     } else {
@@ -34,46 +39,46 @@ jQuery(document).ready(function ($) {
   // Mobile Navigation
 
   // Smoth scroll on page hash links
-  $('a[href*="#"]:not([href="#"])').on("click", function () {
-    if (
-      location.pathname.replace(/^\//, "") ==
-        this.pathname.replace(/^\//, "") &&
-      location.hostname == this.hostname
-    ) {
-      var target = $(this.hash);
-      if (target.length) {
-        var top_space = 0;
+  // $('a[href*="#"]:not([href="#"])').on("click", function () {
+  //   if (
+  //     location.pathname.replace(/^\//, "") ==
+  //       this.pathname.replace(/^\//, "") &&
+  //     location.hostname == this.hostname
+  //   ) {
+  //     var target = $(this.hash);
+  //     if (target.length) {
+  //       var top_space = 0;
 
-        if ($("#header").length) {
-          top_space = $("#header").outerHeight();
+  //       if ($("#header").length) {
+  //         top_space = $("#header").outerHeight();
 
-          if (!$("#header").hasClass("header-fixed")) {
-            top_space = top_space - 20;
-          }
-        }
+  //         if (!$("#header").hasClass("header-fixed")) {
+  //           top_space = top_space - 20;
+  //         }
+  //       }
 
-        $("html, body").animate(
-          {
-            scrollTop: target.offset().top - top_space,
-          },
-          1500,
-          "easeInOutExpo"
-        );
+  //       $("html, body").animate(
+  //         {
+  //           scrollTop: target.offset().top - top_space,
+  //         },
+  //         1500,
+  //         "easeInOutExpo"
+  //       );
 
-        if ($(this).parents(".nav-menu").length) {
-          $(".nav-menu .menu-active").removeClass("menu-active");
-          $(this).closest("li").addClass("menu-active");
-        }
+  //       if ($(this).parents(".nav-menu").length) {
+  //         $(".nav-menu .menu-active").removeClass("menu-active");
+  //         $(this).closest("li").addClass("menu-active");
+  //       }
 
-        if ($("body").hasClass("mobile-nav-active")) {
-          $("body").removeClass("mobile-nav-active");
-          $("#mobile-nav-toggle i").toggleClass("fa-times fa-bars");
-          $("#mobile-body-overly").fadeOut();
-        }
-        return false;
-      }
-    }
-  });
+  //       if ($("body").hasClass("mobile-nav-active")) {
+  //         $("body").removeClass("mobile-nav-active");
+  //         $("#mobile-nav-toggle i").toggleClass("fa-times fa-bars");
+  //         $("#mobile-body-overly").fadeOut();
+  //       }
+  //       return false;
+  //     }
+  //   }
+  // });
 
   // Filtro del portafolio
   $("#portafolio-flters li").click(function () {
