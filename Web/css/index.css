@@ -37,6 +37,10 @@
   margin-right: 1rem;
 }
 
+.nav-link:hover .img-black {
+  filter: brightness(0) invert(100%);
+}
+
 .flex {
   display: flex;
 }
@@ -473,5 +477,10 @@ button.nav-link {
   .fecha-img img {
     width: 75px;
     height: 75px;
+  }
+
+  .cuenta-larga div > span {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
   }
 }
