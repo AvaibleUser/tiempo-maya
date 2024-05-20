@@ -46,7 +46,7 @@ jQuery(document).ready(async function ($) {
         htmlParsed.getElementById("change-cuenta-larga").innerHTML;
     });
 
-    document
+  document
     .getElementById("cruz-picker")
     ?.addEventListener("change", async (event) => {
       const res = await fetch(
