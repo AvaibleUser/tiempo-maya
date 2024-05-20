@@ -11,7 +11,7 @@ $fecha_consultar = date("Y-m-d");
 
 ?>
 
-<section id="Informacion">
+<section id="rueda">
     <div class="container">
         <div class="section-header">
             <h3 class="section-title">Calendario Didactico</h3>
@@ -101,57 +101,3 @@ $fecha_consultar = date("Y-m-d");
         </div>
     </div>
 </section>
-
-<script>
-    window.addEventListener("load", async () => {
-        const picker = document.getElementById("rueda-calendarica-picker");
-        const circleEnergia = document.getElementById("circle-energia");
-        const circleNahual = document.getElementById("circle-nahual");
-        const circleHaab = document.getElementById("haab");
-
-        const getRuedaCalendarica = async (ev) => {
-            const date = picker.value;
-            const res = await fetch(`/backend/buscar/conseguir_rueda_calendarica.php${date ? `?fecha=${date}` : ''}`);
-            const ruedaCalendarica = await res.json();
-            const {
-                cholquij: {
-                    energia: {
-                        numero: numeroEnergia
-                    },
-                    nahual: {
-                        numero: numeroNahual
-                    }
-                },
-                haab: {
-                    kin: {
-                        numero: numeroKin
-                    },
-                    uinal: {
-                        numero: numeroUinal
-                    }
-                }
-            } = ruedaCalendarica;
-
-            const haab = (numeroUinal * 20 + numeroKin - 1) % 365;
-            const energia = numeroEnergia - 1;
-            const nahual = (numeroNahual - 1 + 3) % 20;
-
-            let curr = 0;
-
-            while (curr % 13 !== energia || curr % 20 !== nahual || curr % 365 != haab) {
-                curr++;
-                if (curr >= 18980) {
-                    curr = 0;
-                    break;
-                }
-            }
-
-            circleEnergia.style.transform = `rotate(${curr * 27.692308}deg)`;
-            circleNahual.style.transform = `rotate(${curr * 18}deg)`;
-            circleHaab.style.transform = `rotate(${curr * -0.9863}deg)`;
-        };
-
-        picker.addEventListener("change", getRuedaCalendarica);
-        await getRuedaCalendarica();
-    });
-</script>

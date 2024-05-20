@@ -1,25 +1,3 @@
-<?php
-$conn = include $_SERVER['DOCUMENT_ROOT'] . "/conexion/conexion.php";
-
-date_default_timezone_set('US/Central');
-if (isset($_GET['fecha'])) {
-  $fecha_consultar = $_GET['fecha'];
-} else {
-  $fecha_consultar = date("Y-m-d");
-}
-
-$cholquij = include $_SERVER['DOCUMENT_ROOT'] . '/backend/buscar/conseguir_cholquij.php';
-$haab = include $_SERVER['DOCUMENT_ROOT'] . '/backend/buscar/conseguir_haab.php';
-$cuenta_larga = include $_SERVER['DOCUMENT_ROOT'] . '/backend/buscar/conseguir_fecha_cuenta_larga.php';
-$num_energia = intval($cholquij[0]);
-$nombre_energia = strval($cholquij[1]);
-$nombre_nahual = strval($cholquij[3]);
-$num_kin = intval($haab[0]);
-$nombre_kin = strval($haab[1]);
-$nombre_uinal = strval($haab[3]);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,34 +19,13 @@ $nombre_uinal = strval($haab[3]);
     <section id="inicio">
       <div id="inicioContainer" class="inicio-container">
         <h1>Tiempo Maya</h1>
-        <img alt="" src="/img/logonew2.png" width=185" height="160">
-        <h5 class="fecha">
-          Calendario Haab:
-          <a class="fecha-img" href="models/paginaModeloElemento.php?elemento=kin#<?= $nombre_kin; ?>">
-            <img src="/img/kin/<?= $nombre_kin; ?>_2.png" alt="Error al intentar mostrar al kin <?= $nombre_kin; ?>" class="imagen-elemento img-white">
-            <span><?= $nombre_kin; ?> / <?= $num_kin; ?></span>
-          </a>
+        <br>
 
-          <a class="fecha-img" href="models/paginaModeloElemento.php?elemento=uinal#<?= $nombre_uinal; ?>">
-            <img class="img-white" src="img/uinal/<?= $nombre_uinal; ?>.png" alt="Error al intentar mostrar al uinal <?= $nombre_uinal; ?>" class="imagen-elemento">
-            <span><?= $nombre_uinal; ?></span>
-          </a>
-        </h5>
+        <div id="calculadora-res">
+          <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/calculadora.php"; ?>
+        </div>
 
-        <h5 class="fecha">
-          Calendario Cholquij:
-          <a class="fecha-img" href="models/paginaModeloElemento.php?elemento=energia#<?= $nombre_energia; ?>">
-            <img class="img-white" src="img/energia/<?= $nombre_energia; ?>.png" alt="Error al intentar mostrar al energia <?= $nombre_energia; ?>" class="imagen-elemento">
-            <span><?= $nombre_energia; ?> / <?= $num_energia; ?></span>
-          </a>
-
-          <a class="fecha-img" href="models/paginaModeloElemento.php?elemento=nahual#<?= $nombre_nahual; ?>">
-            <img src="img/nahual/<?= $nombre_nahual; ?>.png" alt="Error al intentar mostrar al nahual <?= $nombre_nahual; ?>" class="imagen-elemento">
-            <span><?= $nombre_nahual; ?></span>
-          </a>
-        </h5>
-        <h5 class="fecha">Cuenta Larga: <?= $cuenta_larga; ?></h5>
-        <label style="color: whitesmoke;"><?= $fecha_consultar; ?></label>
+        <input class="btn btn-outline-light" type="date" id="calculadora-picker" value="<?= $fecha_consultar; ?>">
       </div>
     </section>
 

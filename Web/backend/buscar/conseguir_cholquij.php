@@ -20,7 +20,7 @@ $num_nahual++;
 
 $queryNahual = $conn->query("SELECT nombre, iddesk FROM nahual WHERE iddesk=" . $num_nahual . " ;");
 $rowNahual = mysqli_fetch_assoc($queryNahual);
-$nahual = $rowNahual['nombre'];
+$nombre_nahual = $rowNahual['nombre'];
 $num_nahual = $rowNahual['iddesk'];
 
 $num_energia = $diff->days % 13;
@@ -33,6 +33,6 @@ $num_energia++;
 
 $queryEnergia = $conn->query("SELECT nombre FROM energia WHERE id=" . $num_energia . " ;");
 $rowEnergia = mysqli_fetch_assoc($queryEnergia);
-$energia = $rowEnergia['nombre'];
+$nombre_energia = $rowEnergia['nombre'];
 
-return array($num_energia, $energia, $num_nahual, $nahual);
+return array($num_energia, $nombre_energia, $num_nahual, $nombre_nahual);

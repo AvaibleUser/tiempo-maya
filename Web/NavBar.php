@@ -5,6 +5,7 @@ $kinesNav = $conn->query("SELECT nombre FROM tiempo_maya.kin order by nombre;");
 $uinalesNav = $conn->query("SELECT nombre FROM tiempo_maya.uinal order by nombre;");
 $nahualesNav = $conn->query("SELECT nombre FROM tiempo_maya.nahual order by nombre;");
 $energiasNav = $conn->query("SELECT nombre FROM tiempo_maya.energia order by id;");
+$senoresNocheNav = $conn->query("SELECT nombre FROM tiempo_maya.señor_de_la_noche order by id;");
 // $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by orden ;");
 
 ?>
@@ -137,11 +138,42 @@ $energiasNav = $conn->query("SELECT nombre FROM tiempo_maya.energia order by id;
               </ul>
             </li>
 
+            <li>
+              <a class="nav-link" href="/models/paginaModelo.php?pagina=Cuenta Larga">Cuenta Larga &nbsp;&nbsp;&nbsp;&nbsp; </a>
+              <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Cuenta Larga
+              </button>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li>
+                  <button type="button" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Señor de la Noche
+                  </button>
+                  <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=Señor de la Noche" style="font-size: 13px;">Señores de la Noche </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div>
+                      <?php
+                      if (is_array($senoresNocheNav) || is_object($senoresNocheNav)) {
+                        foreach ($senoresNocheNav as $senorNoche) {
+                      ?>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=Señor de la Noche#<?= $senorNoche['nombre']; ?>">
+                              <?= $senorNoche['nombre']; ?>
+                            </a>
+                          </li>
+                      <?php
+                        }
+                      }
+                      ?>
+                    </div>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
             <li class="nav-item">
               <a class="nav-link" href="/models/paginaModelo.php?pagina=Rueda Calendarica">Rueda Calendarica</a>
             </li>
-
-            <li class="nav-item"><a class="nav-link" href="/calculadora.php">Calculadora</a></li>
           </ul>
         </div>
       </div>

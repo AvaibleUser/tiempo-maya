@@ -51,7 +51,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
                             if ($info['seccion'] != "Informacion") {
                             ?>
                                 <h2>
-                                    <a href="/paginaModeloElemento.php?elemento=<?= $info['nombre']; ?>">
+                                    <a href="/models/paginaModeloElemento.php?elemento=<?= $info['nombre']; ?>">
                                         <?= $info['nombre']; ?>
                                     </a>
                                 </h2>
@@ -64,7 +64,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
                             <?php
                             foreach ($elementos as $elemento) {
                                 if ($elemento['nombre'] != 'Uayeb' && $elemento['nombre'] == $info['nombre']) {
-                                    $tabla = strtolower($elemento['nombre']);
+                                    $tabla = str_replace(" ", "_", strtolower($elemento['nombre']));
                                     $elementosEl = $conn->query("SELECT nombre FROM tiempo_maya." . $tabla . ";");
                                     echo "<ul>";
                                     foreach ($elementosEl as $el) {
@@ -77,7 +77,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
                                         } else {
                                         ?>
                                             <li>
-                                                <a href="/paginaModeloElemento.php?elemento=<?= $info['nombre']; ?>#<?= $el['nombre']; ?>">
+                                                <a href="/models/paginaModeloElemento.php?elemento=<?= $info['nombre']; ?>#<?= $el['nombre']; ?>">
                                                     <?= $el['nombre'] ?>
                                                 </a>
                                             </li>
@@ -101,6 +101,8 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
         <?php
         if ($pagina === "Rueda Calendarica") {
             include_once $_SERVER['DOCUMENT_ROOT'] . "/models/ruedaCalendarica.php";
+        } else if ($pagina === "Cuenta Larga") {
+            include_once $_SERVER['DOCUMENT_ROOT'] . "/models/cuenta-larga.php";
         }
         ?>
 

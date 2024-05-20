@@ -11,62 +11,75 @@ $diff = $fecha1->diff($fecha2);
 $dias = $diff->days;
 $reversa = $fecha_actual > $fecha_entrada;
 
-$number_4 = 0;
-if ($dias > 7200) {
-    $number_4 = floor($dias / 7200);
-    $number_3 = floor(($dias % 7200) / 360);
-    $number_2 = floor((($dias % 7200) % 360) / 20);
-    $number_1 = (($dias % 7200) % 360) % 20;
-} else {
-    $number_3 = floor($dias / 360);
-    $number_2 = floor(($dias % 360) / 20);
-    $number_1 = ($dias % 360) % 20;
-}
+$katun_calc = intdiv($dias, 7200);
+$katun_rem = $dias % 7200;
+$tun_calc = intdiv($katun_rem, 360);
+$tun_rem = $katun_rem % 360;
+$uinal_calc = intdiv($tun_rem, 20);
+$kin_calc = $tun_rem % 20;
 
 if ($reversa) {
-    $number_1 *= -1;
-    $number_2 *= -1;
-    $number_3 *= -1;
-    $number_4 *= -1;
+    $kin_calc *= -1;
+    $uinal_calc *= -1;
+    $tun_calc *= -1;
+    $katun_calc *= -1;
 }
 
-$number1 = 8 + $number_1;
+$cl_kin = 8 + $kin_calc;
 $pivot = 0;
-if ($number1 > 19) {
-    $number1 = $number1 - 20;
+if ($cl_kin > 19) {
+    $cl_kin -= 20;
     $pivot = 1;
-} elseif ($number1 < 0) {
-    $number1 = 20 + $number1;
+} elseif ($cl_kin < 0) {
+    $cl_kin = 20 + $cl_kin;
     $pivot = -1;
 }
 
-$number2 = 15 + $number_2 + $pivot;
+$cl_uinal = 15 + $uinal_calc + $pivot;
 $pivot = 0;
-if ($number2 > 17) {
-    $number2 = $number2 - 18;
+if ($cl_uinal > 17) {
+    $cl_uinal -= 18;
     $pivot = 1;
-} elseif ($number2 < 0) {
-    $number2 = 18 + $number2;
+} elseif ($cl_uinal < 0) {
+    $cl_uinal += 18;
     $pivot = -1;
 }
-$number3 = 7 + $number_3 + $pivot;
-$pivot = 0;
-if ($number3 > 19) {
-    $number3 = $number3 - 20;
-    $pivot = 1;
-} elseif ($number3 < 0) {
-    $number3 = 20 + $number3;
-    $pivot = -1;
-}
-$number4 = 19 + $number_4 + $pivot;
-$pivot = 0;
-if ($number4 > 19) {
-    $number4 = $number4 - 20;
-    $pivot = 1;
-} elseif ($number4 < 0) {
-    $number4 = 20 + $number4;
-    $pivot = -1;
-}
-$number5 = 12 + $pivot;
 
-return strval($number5) . "." . strval($number4) . "." . strval($number3) . "." . strval($number2) . "." . strval($number1);
+$cl_tun = 7 + $tun_calc + $pivot;
+$pivot = 0;
+if ($cl_tun > 19) {
+    $cl_tun -= 20;
+    $pivot = 1;
+} elseif ($cl_tun < 0) {
+    $cl_tun += 20;
+    $pivot = -1;
+}
+
+$cl_katun = 19 + $katun_calc + $pivot;
+$pivot = 0;
+if ($cl_katun > 19) {
+    $cl_katun -= 20;
+    $pivot = 1;
+} elseif ($cl_katun < 0) {
+    $cl_katun += 20;
+    $pivot = -1;
+}
+
+$cl_baktun = 12 + $pivot;
+
+$senor_noche = ($dias + 1) % 9;
+
+if ($senor_noche && $reversa) {
+    $senor_noche = 9 - $senor_noche;
+}
+
+$senor_noche++;
+
+return array(
+    "baktun" => $cl_baktun,
+    "katun" => $cl_katun,
+    "tun" => $cl_tun,
+    "uinal" => $cl_uinal,
+    "kin" => $cl_kin,
+    "senor_noche" => $senor_noche
+);

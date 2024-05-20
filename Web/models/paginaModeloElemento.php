@@ -7,8 +7,9 @@ session_start(); ?>
 
 $conn = include $_SERVER['DOCUMENT_ROOT'] . '/conexion/conexion.php';
 $tabla = $_GET['elemento'];
-$table = strtolower($tabla);
-$datos = $conn->query("SELECT nombre,significado,htmlCodigo FROM tiempo_maya." . $table . ";");
+$table = str_replace(" ", "_", strtolower($tabla));
+$fields = $table === "señor_de_la_noche" ? "nombre" : "nombre,significado,htmlCodigo";
+$datos = $conn->query("SELECT $fields FROM tiempo_maya." . $table . ";");
 $elementos = $datos;
 $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nombre='" . $tabla . "';");
 
@@ -65,7 +66,7 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
                     <?php
                     foreach ($datos as $dato) {
                         $img_path = "/img/$table/" . $dato['nombre'];
-                        $img_class = in_array($table, array("uinal", "energia")) ? "img-white" : "";
+                        $img_class = in_array($table, array("uinal", "energia", "señor_de_la_noche")) ? "img-white" : "";
                         $img_sec_class = $tabla == "kin"  ? "img-white" : "";
                     ?>
                         <div class="center-snap">
@@ -81,10 +82,16 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
                                 }
                                 ?>
                             </p>
-                            <h5>Significado</h5>
-                            <p><?= $dato['significado']; ?></p>
-                            <p><?= $dato['htmlCodigo']; ?></p>
-                            <hr>
+                            <?php
+                            if ($table !== "señor_de_la_noche") {
+                            ?>
+                                <h5>Significado</h5>
+                                <p><?= $dato['significado']; ?></p>
+                                <p><?= $dato['htmlCodigo']; ?></p>
+                                <hr>
+                            <?php
+                            }
+                            ?>
                         </div>
                     <?php
                     }

@@ -21,10 +21,10 @@ $dia = $dia % 20;
 
 $Query = $conn->query("SELECT nombre FROM uinal WHERE iddesk=" . $mes . " ;");
 $row = mysqli_fetch_assoc($Query);
-$uinal = $row['nombre'];
+$nombre_uinal = $row['nombre'];
 
 $Query2 = $conn->query("SELECT nombre FROM kin WHERE id=" . $dia . " ;");
 $row2 = mysqli_fetch_assoc($Query2);
-$kin = $row2['nombre'];
+$nombre_kin = $row2['nombre'];
 
-return array($dia, $kin, $mes, $uinal);
+return array($dia, $nombre_kin, $mes, $nombre_uinal);

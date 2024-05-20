@@ -1,4 +1,4 @@
-jQuery(document).ready(function ($) {
+jQuery(document).ready(async function ($) {
   // Header fixed and Back to top button
   if ($("body").width() < 994) {
     $(".back-to-top").fadeIn("slow");
@@ -24,6 +24,80 @@ jQuery(document).ready(function ($) {
     );
     return false;
   });
+
+  document
+    .getElementById("calculadora-picker")
+    ?.addEventListener("change", async (event) => {
+      const res = await fetch(`/calculadora.php?fecha=${event.target.value}`);
+      const html = await res.text();
+      document.getElementById("calculadora-res").innerHTML = html;
+    });
+
+  document
+    .getElementById("cuenta-larga-picker")
+    ?.addEventListener("change", async (event) => {
+      const res = await fetch(
+        `/models/cuenta-larga.php?fecha=${event.target.value}`
+      );
+      const html = await res.text();
+      const parser = new DOMParser();
+      const htmlParsed = parser.parseFromString(html, "text/html");
+      document.getElementById("tochange").innerHTML =
+        htmlParsed.getElementById("tochange").innerHTML;
+    });
+
+  const ruedaPicker = document.getElementById("rueda-calendarica-picker");
+
+  if (ruedaPicker) {
+    const circleEnergia = document.getElementById("circle-energia");
+    const circleNahual = document.getElementById("circle-nahual");
+    const circleHaab = document.getElementById("haab");
+
+    const getRuedaCalendarica = async (ev) => {
+      const date = ruedaPicker.value;
+      const res = await fetch(
+        `/backend/buscar/conseguir_rueda_calendarica.php${
+          date ? `?fecha=${date}` : ""
+        }`
+      );
+      const ruedaCalendarica = await res.json();
+      const {
+        cholquij: {
+          energia: { numero: numeroEnergia },
+          nahual: { numero: numeroNahual },
+        },
+        haab: {
+          kin: { numero: numeroKin },
+          uinal: { numero: numeroUinal },
+        },
+      } = ruedaCalendarica;
+
+      const haab = (numeroUinal * 20 + numeroKin - 1) % 365;
+      const energia = numeroEnergia - 1;
+      const nahual = (numeroNahual - 1 + 3) % 20;
+
+      let curr = haab;
+
+      while (
+        curr % 13 !== energia ||
+        curr % 20 !== nahual ||
+        curr % 365 != haab
+      ) {
+        curr += 365;
+        if (curr >= 18980) {
+          curr = 0;
+          break;
+        }
+      }
+
+      circleEnergia.style.transform = `rotate(${curr * 27.692308}deg)`;
+      circleNahual.style.transform = `rotate(${curr * 18}deg)`;
+      circleHaab.style.transform = `rotate(${curr * -0.9863}deg)`;
+    };
+
+    ruedaPicker.addEventListener("change", getRuedaCalendarica);
+    await getRuedaCalendarica();
+  }
 
   // Initiate the wowjs
   new WOW().init();
