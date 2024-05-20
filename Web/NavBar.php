@@ -48,6 +48,7 @@ $senoresNocheNav = $conn->query("SELECT nombre FROM tiempo_maya.señor_de_la_noc
                       ?>
                           <li class="nav-item">
                             <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=kin#<?= $kin['nombre']; ?>">
+                              <img class="img-black" src="/img/kin/<?= $kin['nombre']; ?>.png" alt="Error al intentar mostrar al kin <?= $kin['nombre']; ?>">
                               <?= $kin['nombre']; ?>
                             </a>
                           </li>
@@ -70,6 +71,7 @@ $senoresNocheNav = $conn->query("SELECT nombre FROM tiempo_maya.señor_de_la_noc
                       ?>
                           <li class="nav-item">
                             <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=uinal#<?= $uinal['nombre']; ?>">
+                              <img class="img-black" src="/img/uinal/<?= $uinal['nombre']; ?>.png" alt="Error al intentar mostrar al uinal <?= $uinal['nombre']; ?>">
                               <?= $uinal['nombre']; ?>
                             </a>
                           </li>
@@ -102,6 +104,7 @@ $senoresNocheNav = $conn->query("SELECT nombre FROM tiempo_maya.señor_de_la_noc
                       ?>
                           <li class="nav-item">
                             <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=nahual#<?= $nahual['nombre']; ?>">
+                              <img src="/img/nahual/<?= $nahual['nombre']; ?>.png" alt="Error al intentar mostrar al nahual <?= $nahual['nombre']; ?>">
                               <?= $nahual['nombre']; ?>
                             </a>
                           </li>
@@ -125,6 +128,7 @@ $senoresNocheNav = $conn->query("SELECT nombre FROM tiempo_maya.señor_de_la_noc
                       ?>
                           <li class="nav-item">
                             <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=energia#<?= $energia['nombre']; ?>">
+                              <img class="img-black" src="/img/energia/<?= $energia['nombre']; ?>_2.png" alt="Error al intentar mostrar al energia <?= $energia['nombre']; ?>">
                               <?= $energia['nombre']; ?>
                             </a>
                           </li>
@@ -158,6 +162,7 @@ $senoresNocheNav = $conn->query("SELECT nombre FROM tiempo_maya.señor_de_la_noc
                       ?>
                           <li class="nav-item">
                             <a class="nav-link" href="/models/paginaModeloElemento.php?elemento=Señor de la Noche#<?= $senorNoche['nombre']; ?>">
+                              <img class="img-black" src="/img/señor_de_la_noche/<?= $senorNoche['nombre']; ?>.png" alt="Error al intentar mostrar al señor de la noche <?= $senorNoche['nombre']; ?>">
                               <?= $senorNoche['nombre']; ?>
                             </a>
                           </li>

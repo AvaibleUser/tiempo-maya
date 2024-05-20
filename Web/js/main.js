@@ -42,8 +42,21 @@ jQuery(document).ready(async function ($) {
       const html = await res.text();
       const parser = new DOMParser();
       const htmlParsed = parser.parseFromString(html, "text/html");
-      document.getElementById("tochange").innerHTML =
-        htmlParsed.getElementById("tochange").innerHTML;
+      document.getElementById("change-cuenta-larga").innerHTML =
+        htmlParsed.getElementById("change-cuenta-larga").innerHTML;
+    });
+
+    document
+    .getElementById("cruz-picker")
+    ?.addEventListener("change", async (event) => {
+      const res = await fetch(
+        `/models/cruz-maya.php?fecha=${event.target.value}`
+      );
+      const html = await res.text();
+      const parser = new DOMParser();
+      const htmlParsed = parser.parseFromString(html, "text/html");
+      document.getElementById("change-cruz").innerHTML =
+        htmlParsed.getElementById("change-cruz").innerHTML;
     });
 
   const ruedaPicker = document.getElementById("rueda-calendarica-picker");

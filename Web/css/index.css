@@ -31,6 +31,12 @@
   font-size: 17px;
 }
 
+.nav-link img {
+  width: 45px;
+  height: 45px;
+  margin-right: 1rem;
+}
+
 .flex {
   display: flex;
 }
@@ -393,4 +399,79 @@ button.nav-link {
   top: 50%;
   height: 80%;
   transform: translateY(-50%);
+}
+
+.cruz-maya-wrapper {
+  background-image: url("/img/cruz_maya.png");
+  background-size: 1200px 1200px;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cruz-maya,
+.cruz-maya .middle,
+.cruz-maya div:has(> img) {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.cruz-maya {
+  flex-direction: column;
+  width: 60%;
+  aspect-ratio: 1;
+}
+
+.cruz-maya div:has(> img) {
+  flex-direction: column;
+}
+
+.cruz-maya div span {
+  color: #2dc997;
+  background-color: #1f1f1f80;
+}
+
+.cruz-maya img {
+  height: 100px;
+  width: 100px;
+}
+
+.cruz-maya .middle {
+  width: 100%;
+}
+
+@media (max-width: 994px) {
+  .cruz-maya {
+    width: 100%;
+  }
+}
+
+@media (max-width: 661px) {
+  .cruz-maya img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .cruz-maya-wrapper {
+    background-size: 600px 600px;
+  }
+
+  .cruz-maya {
+    width: 90%;
+  }
+
+  .fecha {
+    font-size: 15px;
+  }
+  
+  .fecha-img {
+    font-size: small;
+  }
+  
+  .fecha-img img {
+    width: 75px;
+    height: 75px;
+  }
 }

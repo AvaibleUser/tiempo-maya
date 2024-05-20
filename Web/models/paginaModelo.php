@@ -103,6 +103,8 @@ $elementos = $conn->query("SELECT nombre FROM tiempo_maya.pagina WHERE categoria
             include_once $_SERVER['DOCUMENT_ROOT'] . "/models/ruedaCalendarica.php";
         } else if ($pagina === "Cuenta Larga") {
             include_once $_SERVER['DOCUMENT_ROOT'] . "/models/cuenta-larga.php";
+        } else if ($pagina === "Calendario Cholquij") {
+            include_once $_SERVER['DOCUMENT_ROOT'] . "/models/cruz-maya.php";
         }
         ?>
 

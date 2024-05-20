@@ -40,7 +40,7 @@ $cl_senor_noche = $cuenta_larga["senor_noche"];
             </div>
         </form>
 
-        <div id="tochange" class="cuenta-larga">
+        <div id="change-cuenta-larga" class="cuenta-larga">
             <div class="introductorio">
                 <span class="rigth">Glifo Introductorio</span>
                 <img class="img-white" src="/img/cuenta-larga/introductorio.png" alt="Error al intentar mostrar el glifo introductorio">
